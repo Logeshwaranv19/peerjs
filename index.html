@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeerChat - Secure P2P Communication</title>
+  <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <div id="Top" class="glass">
+    <div class="creators">
+      <a href="mailto:vayalilandrew@gmail.com" class="creator-link">Logesh</a>
+      <a href="mailto:andrew@gmail.com" class="creator-link">..</a>
+    </div>
+    <h1>🗨️ PeerChat</h1>
+    <div class="room-info">
+      <span class="status-indicator status-online"></span>
+      Room: <span id="room-id"></span>
+    </div>
+    <button id="disconnectButton">
+      <span>🚪</span> Leave
+    </button>
+  </div>
+
+  <!-- Chat Messages -->
+  <div id="chat" class="glass"></div>
+
+  <!-- Message Input -->
+  <div id="input-container" class="glass">
+    <input type="text" id="messageInput" placeholder="Type your message..." />
+    <button id="fileButton" title="Send File" class="primary-btn">📎</button>
+    <button id="sendButton" class="primary-btn">
+      <span>Send</span>
+      <span>➤</span>
+    </button>
+    <input type="file" id="fileInput" style="display: none;">
+  </div>
+
+  <!-- Video Streams -->
+  <div id="video-container" class="glass">
+    <video id="remoteVideo" autoplay playsinline style="display: none;"></video>
+    <video id="localVideo" autoplay muted playsinline style="display: none;"></video>
+  </div>
+
+  <!-- Call Controls -->
+  <div class="controls-container">
+    <button id="startCallButton" class="call-btn primary-btn">
+      <span>📹</span> Start Video Call
+    </button>
+    <button id="endCallButton" class="call-btn danger-btn" style="display: none;">
+      <span>❌</span> End Call
+    </button>
+  </div>
+
+  <!-- Screen Share Controls -->
+  <div class="controls-container">
+    <button id="shareScreenButton" class="call-btn success-btn">
+      <span>🖥️</span> Share Screen
+    </button>
+    <button id="endScreenShareButton" class="call-btn danger-btn" style="display: none;">
+      <span>❌</span> Stop Sharing
+    </button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+<!--the explanation of the project is to peer to peer chat and video call using webRTC and PeerJS-->
+<!-- npx http-server -S -C localhost+1.pem -K localhost+1-key.pem -p 9091 -->
+<!-- http://localhost:9091 -->
+
+<!--explanation for the code above-->
+<!-- This is the HTML structure for a peer-to-peer chat application called "PeerChat". It includes elements for displaying chat messages, video streams, and buttons for starting/stopping calls and screen sharing. The layout is designed to facilitate real-time communication between users. -->
